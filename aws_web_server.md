@@ -78,5 +78,28 @@ to recreate it.
         
         Click Launch instances.
         
+## AWS Instance Management
+
+1) Create IAM user. This is a recommended way to manage AWS resources: as in Linux, you can use 
+   the default root user for everything but it is better to create users and specify permissions etc.
+
+[Follow these instructions: Creating Your First IAM Admin User and Group](http://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)
+
+**NOTE** when you create the user, make sure you save "AWS secret access key" somewhere - you will need it
+for access, and it is not possible to lookup later (You can create a new one if you lose this one.)
+
+2) Install AWS command line interface
+
+        sudo apt-get update
+        sudo apt-get install awscli
+        
+ 3) Configure AWS CLI, you will need your user's AWS access key and secret access key. Apparently, you also 
+    better specify region (which is similar to availability zone but different). E.g. region: us-east-1.
+ 
+        aws configure
+        
+ 4) If you are moving server from EC2 to VPN, you may need to move public IP. Here is a dry run:
+ 
+        aws ec2 move-address-to-vpc --dry-run --public-ip 50.17.218.156
         
         
