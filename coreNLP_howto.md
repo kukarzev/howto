@@ -18,7 +18,7 @@ Using Ubuntu 16.04. See References at the bottom for links to the sources.
         # add all jars in the unzipped directory to project path
 
 
-# Create (Java) Project
+# Create (Java) CoreNLP Project
 
 1. [Download Eclipse](https://eclipse.org/downloads/)
 2. Install Eclipse
@@ -34,10 +34,45 @@ Using Ubuntu 16.04. See References at the bottom for links to the sources.
         Click Next
         Click Tab Libraries -> Add external JARs: add libraries, e.g. all CoreNLP jars
         Click Finish
+
+
+# Create Example
+
+1. Use a dropdown interface to create new class, check "public static void main(String[] args)"
+2. Add example code
+
+        import edu.stanford.nlp.pipeline.*;
+        import java.util.*;
+
+        public class BasicPipelineExample {
+
+            public static void main(String[] args) {
+
+                // creates a StanfordCoreNLP object, with POS tagging, lemmatization, NER, parsing, and coreference resolution
+                Properties props = new Properties();
+                props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
+                StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
+
+                // read some text in the text variable
+                String text = "...";
         
+                // create an empty Annotation just with the given text
+                Annotation document = new Annotation(text);
+        
+                // run all Annotators on this text
+                pipeline.annotate(document);
+                
+                System.out.println("all done.");
+            }
+
+       }
+3. Save CTRL+s (Eclipse compiles it at that), and run.
+4. See CoreNLP web site and this repo for more examples.
+
 
 # References
 
+0. [CoreNLP API, examples](http://stanfordnlp.github.io/CoreNLP/api.html)
 1. [How to Install Java](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
 2. [Get started with CoreNLP](http://eirew.blogspot.com/2014/11/analyzing-text-using-stanford-corenlp.html)
 3. [How to install Eclipse](http://askubuntu.com/questions/695382/how-to-install-eclipse-using-its-installer)
