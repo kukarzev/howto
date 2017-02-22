@@ -15,7 +15,11 @@ Using Ubuntu 16.04. See References at the bottom for links to the sources.
 2. Download CoreNLP from http://stanfordnlp.github.io/CoreNLP/download.html
 
         unzip stanford-corenlp-full-2016-10-31.zip
-        # add all jars in the unzipped directory to project path
+        # add all jars in the unzipped directory to project path (class path)
+
+3. Additional downloads (should be added to class path)
+  1. Shift-Reducing Constituency Parser: http://nlp.stanford.edu/software/srparser.shtml
+  2. Language models (English): http://stanfordnlp.github.io/CoreNLP/download.html
 
 
 # Create (Java) CoreNLP Project
@@ -68,6 +72,15 @@ Using Ubuntu 16.04. See References at the bottom for links to the sources.
        }
 3. Save CTRL+s (Eclipse compiles it at that), and run.
 4. See CoreNLP web site and this repo for more examples.
+
+
+# CoreNLP Server
+Let's run a server - it looks like this is the best way to use API anyway.
+
+    java -mx4g -cp "software/stanford-corenlp-full-2016-10-31/*" \
+    edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000 -timeout 15000
+
+See the results at [http://localhost:9000](http://localhost:9000)
 
 
 # References
