@@ -1,31 +1,27 @@
 package java_eclipse_project;
 
+import java.util.List;
+import java.util.Properties;
+
+import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.CoreAnnotations.NamedEntityTagAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.PartOfSpeechAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
-import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.pipeline.*;
+import edu.stanford.nlp.pipeline.Annotation;
+import edu.stanford.nlp.pipeline.StanfordCoreNLPClient;
 import edu.stanford.nlp.util.CoreMap;
-import java.util.*;
 
-public class BasicPipelineExample {
+public class ServerCoreNlpPipeline {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
         // creates a StanfordCoreNLP object, with POS tagging, lemmatization, NER, parsing, and coreference resolution
         Properties props = new Properties();
-        props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, dcoref");
-        StanfordCoreNLP pipeline = new StanfordCoreNLP(
-        		props
-        		//PropertiesUtils.asProperties(	
-        		//		"annotators", "tokenize,ssplit,pos,lemma,parse,natlog",
-        		//		"ssplit.isOneSentence", "true",
-        		//		"parse.model", "edu/stanford/nlp/models/srparser/englishSR.ser.gz",
-        		//		"tokenize.language", "en")
-        		);
+        props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner, parse, coref");
+
+        StanfordCoreNLPClient pipeline = new StanfordCoreNLPClient(props, "http://localhost", 9000, 2);
 
         // read some text in the text variable
         String text = "After about three billion years of this sometimes zany, "
@@ -71,9 +67,8 @@ public class BasicPipelineExample {
         		System.out.print(word+"/"+pos+"/"+ne+" ");
         	}
         	System.out.print("\n");
-
         }
-
+        
         System.out.println("all done.");
 	}
 
