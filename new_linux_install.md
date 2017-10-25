@@ -19,6 +19,7 @@ e.g. freetds, /data, etc.
 	sudo apt-get install emacs git
 	mv kukarzev.old/.emacs.d kukarzev/
 	mv /home/kukarzev.old/.gitconfig /home/kukarzev/
+    rsync -aviuP /home/kukarzev.old/.ssh/ /home/kukarzev/.ssh/
 
 
 5) Move bin, git, github to the new home. Check and fix softlinks in
