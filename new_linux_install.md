@@ -46,9 +46,10 @@ dashes etc.
         sudo apt-get install google-chrome-stable
         sudo rm /etc/apt/sources.list.d/google.list
 
-9) Set window translucency dial to mouse wheel
+9) Set window translucency dial to mouse wheel. Set russian kb layout.
 
         System Settings -> Window Actions -> Mouse wheel dropdown to "Change Opacity"
+        System Settings -> Input Devices -> Layouts -> Configure Layouts -> Add -> Main shortcut
 	
 10) Install skype: download deb package from skype.com
 
