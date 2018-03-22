@@ -1,70 +1,60 @@
-see test(!)
-from the last answer (as of march 2018) here:
+# DRM (purely hypothetical, naturally)
+
+**see Test section at the end!**
+
+_from the last answer (as of march 2018) here:_
 
 https://askubuntu.com/questions/461409/how-can-i-remove-the-drm-from-an-epub-file
 
-The other answers no longer work (or did for me). Unfortunately getting it to work is convoluted and will use +5GB of space. However, this is what I did to get it working. I hope I included all the steps. It installs ADE 2.0.1
+Wine from the repo below + default winetricks from apt-get seem to work fine, the extra repo may not be even necessary.
 
-Note: wine1.7 and the version in repo for winetricks failed for installing dotdeb (required for ADE 2.0.1) so I installed the latest winetricks and wine
-
-Winetricks repo - winetricks
-I used whereis winetricks to find it and moved the downloaded winetricks to that location (for example /usr/bin/winetricks)
-Wine2.0 - guide
+1. Winetricks repo - winetricks
 Remove your current version of wine prior to installing the new version
-sudo add-apt-repository ppa:ricotz/unstable
-sudo apt-get update && sudo apt install wine-stable
-Installing ADE 2.0.1
-I used this guide (partially replicated here)
 
-Files to download
-Dotnet Framework 3.5SP1
-ADE 2.0.1
-Steps
-WINEPREFIX=~/.adewine WINEARCH=win32 wineboot
-export WINEPREFIX=$HOME/.adewine/
-winetricks -q windowscodecs && winetricks -q corefonts
-wine ~/Downloads/dotnetfx35setup.exe # Will take awhile
-wine ~/Downloads/ADE_2.0_Installer.exe
-At this point, you should open ADE and login to authorize it to allow calibre to gain your key later on.
+        sudo add-apt-repository ppa:ricotz/unstable
+        sudo apt-get update && sudo apt install wine-stable
+ 
+2. Installing ADE 2.0.1. Download
+[Dotnet Framework 3.5SP1](https://www.microsoft.com/en-us/download/details.aspx?id=22)
+[ADE 2.0.1](http://www.adobe.com/support/digitaleditions/downloads.html)
 
-WINEPREFIX=$HOME/.adewine/ wine DigitalEditions.exe
+        WINEPREFIX=~/.wine WINEARCH=win32 wineboot
+        export WINEPREFIX=$HOME/.wine/
+        winetricks -q windowscodecs && winetricks -q corefonts
+        wine ~/Downloads/dotnetfx35setup.exe # Will take awhile
+        wine ~/Downloads/ADE_2.0_Installer.exe
 
-Install Python and Pycrypto for Calibre
-The script for removing drm with calibre recommends python2.7 but python2.6 seems to work. For me, there was a bug where wine cannot find python.exe and has a error of
+3. At this point, you should open ADE and login to authorize it to allow calibre to gain your key later on.
 
-wine: cannot find L"C:\\windows\\system32\\python.exe"
+        WINEPREFIX=$HOME/.wine/ wine DigitalEditions.exe
 
-I worked around that by linking it.
+4. Install Python
 
-Install python26
-export WINEPREFIX=$HOME/.adewine/
-winetricks python26
-cd ~/.adewine/drive_c/windows/system32 && ln -s ../../Python26/python.exe ./; cd -
-Install Pycrypto
-export WINEPREFIX=$HOME/.adewine/
-I installed the file from here (Voidspace) and this file - PyCrypto 2.6 for Python 2.6 32bit (sig)
-wine pycrypto-2.6.win32-py2.6.exe
-Install calibre and drm plugin
-Install calibre
-sudo apt-get install calibre
+        export WINEPREFIX=$HOME/.wine/
+        winetricks python27
+        
+5. Install Pycrypto (from [here](http://www.voidspace.org.uk/python/modules.shtml#pycrypto)
 
-Install DeDRM calibre plugin
-Download DeDRM_tools from this repo
+        export WINEPREFIX=$HOME/.wine/
 
-Extract the DeDRM_calibre_plugin directory inside the zipfile to anywhere
-Open Calibre and go into: Preferences -> Plugins -> Load Plugin from file -> Choose DeDRM_plugin.zip from the directory you extracted too.
-Configure DRM Plugin
-In plugins (from before) search for drm or DeDRM
-Select Customize plugin -> Adobe Digital Editions ebooks
-In WINEPREFIX put in /home/YOURUSERNAME/.adewine # Replace YOURUSERNAME with your username :)
-Select the Green Plus sign and give the key a name
-Test
-Download a book to ADE by opening the .ascm file (or dragging into it). You can open ADE by running WINEPREFIX=$HOME/.adewine/ wine DigitalEditions.exe
+6. Install calibre
 
-Run Calibre and add a book from ~/Documents/My Digital Editions/bookname.epub
+        sudo apt-get install calibre
 
-shareedit
-edited Apr 26 '17 at 18:42
-answered Apr 26 '17 at 18:27
+7. Install DeDRM calibre plugin: download [DeDRM_tools](https://github.com/apprenticeharper/DeDRM_tools/releases)
+   1. Extract the DeDRM_calibre_plugin directory inside the zipfile to anywhere
+   2. Open Calibre and go into: Preferences -> Plugins -> Load Plugin from file -> Choose DeDRM_plugin.zip from the directory you extracted too.
+   
+8. Configure DRM Plugin
+   1. In plugins (from before) search for drm or DeDRM
+   2. Select Customize plugin -> Adobe Digital Editions ebooks
+   3. In WINEPREFIX put in /home/YOURUSERNAME/.wine # Replace YOURUSERNAME with your username :)
+   4. Select the Green Plus sign and give the key a name (not sure if this is needed)
 
-Miati
+## Test
+1. Download a book to ADE by opening the .ascm file (or dragging into it). You can open ADE by running 
+        
+        WINEPREFIX=$HOME/.wine/ wine DigitalEditions.exe
+
+2. Run Calibre and add a book from ~/Documents/My Digital Editions/bookname.epub
+
