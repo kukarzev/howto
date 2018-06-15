@@ -6,7 +6,7 @@
     python3 get-pip.py
     rm get-pip.py 
     pip install -U pip
-    exit
+    deactivate
     
 Activate whenever you need:
 
