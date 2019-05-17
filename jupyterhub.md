@@ -32,38 +32,20 @@ command (to be configured later).
         sudo adduser jupyterhub --disabled-login --disabled-password
         sudo adduser jupyterhub shadow
 
-3) Clone JupiterHub configuration from git, move it to where we will
-run it, and give ownership to the jupiterhub user.
+3) Clone JupiterHub working directory (with configuration and such) from git, e.g. `kukarzev/jupyterhub`, move it to where you want it, and give ownership to the jupiterhub user.
 
         cd
         mkdir tmp
         cd tmp
-        git clone git@git.renaissance.com:LearningScience/jupyterhub.git
+        git clone 
         sudo mkdir /software
         sudo mv jupyterhub /software/
         sudo chown -R jupyterhub /software/jupyterhub
         cd ..
         rm -rf tmp
 
-4) Configure virtualenv (as jupyterhub user because we want it to own the environment).
-
-        sudo su jupyterhub
-        cd /software/jupyterhub
-        python3 -m venv --without-pip venv
-        source venv/bin/activate
-        wget https://bootstrap.pypa.io/get-pip.py
-        python3 get-pip.py
-        rm get-pip.py 
-        pip install -U pip
-        exit
-
-5) Install sudospawner and jupiterhub (as jupyterhub user because we want it to own the environment).
-
-        sudo su jupyterhub
-        pip install git+https://github.com/jupyter/sudospawner
-        pip install jupyterhub
-        exit
-
+4) [Configure virtualenv and install jupiterhub and sudospawner (as jupyterhub user because we want it to own the environment): virtualenv.md](https://github.com/kukarzev/howto/blob/master/virtualenv.md).
+   
 6) Edit jupiterhub_config.py: make sure that the server IP address is
 correct, possibly other settings like ssl certificate and key (as
 jupyterhub user because we want it to own the environment).
