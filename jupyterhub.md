@@ -41,7 +41,7 @@ command (to be configured later).
         cd ..
         rm -rf tmp
 
-4) [Configure virtualenv and install jupiterhub and sudospawner (as jupyterhub user because we want it to own the environment): virtualenv.md](https://github.com/kukarzev/howto/blob/master/virtualenv.md).
+4) Configure virtualenv and install jupiterhub and sudospawner (as jupyterhub user because we want it to own the environment): [kukarzev/howto/virtualenv.md](https://github.com/kukarzev/howto/blob/master/virtualenv.md).
    
 6) Edit jupiterhub_config.py: make sure that the server IP address is
 correct, possibly other settings like ssl certificate and key (as
