@@ -1,10 +1,7 @@
 JupyterHub Configuration and Deployment
 =======================================
 
-This repository contains a few files needed to configure and deploy
-JupyterHub. This is a multiuser server setup, you probably do not need
-this explicitly. This is set up for the team on one of team's servers.
-
+[This repository (kukarzev/jupyterhub)](https://github.com/kukarzev/jupyterhub) contains a few files needed to configure and deploy JupyterHub. This is a multiuser server setup. For a single-user mode you do not need any of this.
 
 
 Installation
