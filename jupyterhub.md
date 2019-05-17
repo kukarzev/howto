@@ -32,12 +32,12 @@ command (to be configured later).
         sudo adduser jupyterhub --disabled-login --disabled-password
         sudo adduser jupyterhub shadow
 
-3) Clone JupiterHub working directory (with configuration and such) from git, e.g. `kukarzev/jupyterhub`, move it to where you want it, and give ownership to the jupiterhub user.
+3) Clone JupiterHub working directory (with configuration and such) from git, e.g. [kukarzev/jupyterhub](https://github.com/kukarzev/jupyterhub), move it to where you want it, and give ownership to the jupiterhub user.
 
         cd
         mkdir tmp
         cd tmp
-        git clone 
+        git clone git@github.com:kukarzev/jupyterhub.git
         sudo mkdir /software
         sudo mv jupyterhub /software/
         sudo chown -R jupyterhub /software/jupyterhub
