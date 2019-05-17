@@ -73,10 +73,15 @@ jupyterhub user because we want it to own the environment).
         # look for c.JupyterHub.ip = '127.0.0.1'
         exit
 
-7) Copy jupyterhub.conf to /etc/init/ so the server respawns and loads
+7) **UPSTART ONLY** Copy jupyterhub.conf to /etc/init/ so the server respawns and loads
 on boot.
 
         sudo cp jupyterhub.conf /etc/init/
+
+7) **SYSTEMD** Edit `jupyterhub.service`, copy and reload services:
+
+        sudo cp jupyterhub.service /etc/systemd/system/
+        sudo systemctl daemon-reload
 
 8) Give jupyterhub user specific sudo privileges.
 
