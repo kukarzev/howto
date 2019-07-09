@@ -2,6 +2,7 @@
 Create python virtual environment and install packages
 and libraries to serve common data science needs:
 - jupyter notebook
+- dev tools: style, validation, testing
 - flask web application engine
 - matplotlib graphics
 - bokeh graphics
@@ -34,6 +35,14 @@ Activate whenever you need:
 When activated, install packages with pip:
 
     pip install mypackage
+
+
+# Development Tools
+
+    pip install pylint
+    pip install yapf
+    pip install pytest
+    pip install pytest-xdist
 
 
 # Jupyter Notebook
