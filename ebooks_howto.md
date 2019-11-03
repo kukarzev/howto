@@ -15,7 +15,7 @@ Remove your current version of wine prior to installing the new version
         sudo apt-get update && sudo apt install wine-stable
  
 2. Installing ADE 2.0.1. Download
-[Dotnet Framework 3.5SP1](https://www.microsoft.com/en-us/download/details.aspx?id=22)
+[Dotnet Framework 3.5SP1](https://www.microsoft.com/en-us/download/details.aspx?id=22) and
 [ADE 2.0.1](http://www.adobe.com/support/digitaleditions/downloads.html)
 
         WINEPREFIX=~/.wine WINEARCH=win32 wineboot
