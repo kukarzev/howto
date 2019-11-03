@@ -1,3 +1,6 @@
+# LiveUSB for MacOSX
+Mac seems to be particularly stupid 
+
 # Linux Desktop Config
 The steps to do a fresh install and bring it to a configuration I
 like. Always keep /home in a separate partition.
