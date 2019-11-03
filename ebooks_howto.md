@@ -21,6 +21,12 @@ Remove your current version of wine prior to installing the new version
         WINEPREFIX=~/.wine WINEARCH=win32 wineboot
         export WINEPREFIX=$HOME/.wine/
         winetricks -q windowscodecs && winetricks -q corefonts
+        
+    2.1 Run winetricks, navigate menus to set windows version to XP, omething like:
+
+        winetricks
+   select default prefic-> change config -> set to winxp, then continue with
+        
         wine ~/Downloads/dotnetfx35setup.exe # Will take awhile
         wine ~/Downloads/ADE_2.0_Installer.exe
 
