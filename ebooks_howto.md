@@ -22,7 +22,7 @@ Remove your current version of wine prior to installing the new version
         export WINEPREFIX=$HOME/.wine/
         winetricks -q windowscodecs && winetricks -q corefonts
         
-    2.1 Run winetricks, navigate menus to set windows version to XP, omething like:
+    2.1 Run winetricks, navigate menus to set windows version to XP, something like:
 
         winetricks
    select default prefic-> change config -> set to winxp, then continue with
