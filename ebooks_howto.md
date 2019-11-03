@@ -14,6 +14,10 @@ Remove your current version of wine prior to installing the new version
         sudo add-apt-repository ppa:ricotz/unstable
         sudo apt-get update && sudo apt install wine-stable
  
+    2.1 Here is another way to install 
+    - [wine](http://ubuntuhandbook.org/index.php/2017/01/install-wine-2-0-ubuntu-16-04-14-04-16-10/)
+    - [winetricks](https://github.com/Winetricks/winetricks)
+ 
 2. Installing ADE 2.0.1. Download
 [Dotnet Framework 3.5SP1](https://www.microsoft.com/en-us/download/details.aspx?id=22) and
 [ADE 2.0.1](http://www.adobe.com/support/digitaleditions/downloads.html)
