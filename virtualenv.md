@@ -115,6 +115,9 @@ To enable most of existing LS python code and typical needs.
     pip install xlrd
     pip install torch
     pip install beautifulsoup4
+    pip install toolz
+    pip install python-Levenshtein
+    pip install tensorflow
     
     
 # Various Upgrades
