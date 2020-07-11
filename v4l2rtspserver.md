@@ -17,3 +17,9 @@ sudo v4l2rtspserver -H 480 -W 640 -F 15 -P 8554 /dev/video0
 The above works fine, can be viewed in VLC as [rtsp://192.168.1.150:8554/unicast](rtsp://192.168.1.150:8554/unicast)
 
 Now need to figure out how to view it in browser and broadcast outside local network...
+
+## Broadcasting video outside local network
+
+In the router (Linksys) go to gaming -> set up single port forwarding. Both internal and external ports are 8554, the internal IP address of the raspberry PI with the camera (192.168.1.150)
+
+RTSP stream can be seen externally as `rtsp://public_IP:8554/unicast`
