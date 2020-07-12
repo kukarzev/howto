@@ -34,4 +34,6 @@ In the router (Linksys) go to gaming -> set up single port forwarding. Both inte
 
 RTSP stream can be seen externally as `rtsp://public_IP:8554/unicast`
 
+## Notes
 
+[Disable Raspberry Pi's wifi power management](https://thepihut.com/blogs/raspberry-pi-tutorials/disable-wifi-power-management)
