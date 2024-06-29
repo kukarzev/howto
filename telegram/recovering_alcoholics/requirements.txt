@@ -1,0 +1,4 @@
+pyaes
+pyasn1
+rsa
+Telethon
