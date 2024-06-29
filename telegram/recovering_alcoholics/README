@@ -1,0 +1,13 @@
+- check out the code
+- cd howto/telegram/recovereing_alcoholics
+- get authentication: google Telethon authentication and create a bot or figure out what's needed, it's simple. Look in the code, it says what you need
+- setup, in shell:
+
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+- run:
+
+python recover_alcoholics.py
+
