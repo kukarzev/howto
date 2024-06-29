@@ -26,10 +26,10 @@ with open("run1/deleted_messages.json","w") as _file:
             print("Dumping message",c, "(", event.old.id, event.old.date,")")
             _file.write(event.old.to_json() + ",") 
             c+=1
-            # if event.old.media:
-            #     m+=1
-            #     #print(event.old.media.to_dict()['Document']['id'])
-            #     client.download_media(event.old.media, str(event.old.id))
-            #     print(" Dumped media", m)
+            if event.old.media:
+                m+=1
+                #print(event.old.media.to_dict()['Document']['id'])
+                client.download_media(event.old.media, str(event.old.id))
+                print(" Dumped media", m)
             time.sleep(0.1)
     _file.write('{}]}')
